@@ -5,7 +5,7 @@ export default function Register() {
   return (
     <div className="register">
       <span className="registerTitle">Register</span>
-      <form action="" className="registerForm">
+      <form action="/register" className="registerForm" method="POST">
         <label htmlFor="">Username</label>
         <input
           type="text"
