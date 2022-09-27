@@ -58,12 +58,15 @@ export default function Sidebar() {
       </div>
       <div className="sidebarItem">
         <span className="sidebarTitle">FOLLOW ME</span>
-        <div className="sidebarSocial">
+        {/* <div className="sidebarSocial">
           <i className="topIcon fa-brands fa-facebook"></i>
           <i className="topIcon fa-brands fa-instagram"></i>
           <i className="topIcon fa-brands fa-pinterest"></i>
           <i className="topIcon fa-brands fa-twitter"></i>
-        </div>
+        </div> */}
+        <adress>
+          <a href="mailto:tanvi.monitors@gmail.com">Tanvi Gurjar </a>
+        </adress>
       </div>
     </div>
   );

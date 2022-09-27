@@ -27,7 +27,7 @@ export default function Register(props) {
     // If POST request is successful redirect to login page
     // If the request resolves with an error, set the error message in the state
     axios
-      .post(`${API_URL}/auth/register`, requestBody)
+      .post(`${API_URL}/api/auth/register`, requestBody)
       .then((response) => {
         navigate("/login");
       })

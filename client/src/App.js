@@ -45,8 +45,7 @@ function App() {
           path="/post/:postId"
           element={
             <IsPrivate>
-              {" "}
-              <Single />{" "}
+              <Single />
             </IsPrivate>
           }
         />

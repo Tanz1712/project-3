@@ -6,12 +6,16 @@ import axios from "axios";
 
 const API_URL = "http://localhost:5005";
 
-export default function SinglePost() {
+export default function SinglePost({url}) {
   const [post, setPost] = useState([]);
 
   const getSinglePost = () => {
+      // Get the token from the localStorage
+  const storedToken = localStorage.getItem("authToken");
+ 
+  // Send the token through the request "Authorization" Headers
     axios
-      .get(`${API_URL}/api/post/${post._id}`)
+      .get(`${API_URL}/api/post/${post._id}`, { headers: { Authorization: `Bearer ${storedToken}` } })
       .then((response) => setPost(response.data)) //console.log(response.data)
       .catch((error) => console.log(error));
   };
