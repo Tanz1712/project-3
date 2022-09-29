@@ -1,0 +1,55 @@
+.category {
+    padding-top: 50px;
+  }
+  
+ 
+  .createForm {
+    position: relative;
+  }
+  
+  .createFormGroup {
+    margin-left: 150px;
+    display: flex;
+    align-items: center;
+  }
+  
+
+  
+  .createInput {
+    font-size: 30px;
+    border: none;
+    padding: 20px;
+    width: 70vw;
+  }
+  
+  .createInput::placeholder {
+    color: rgb(189, 185, 185);
+    font-weight: 400;
+  }
+  
+  .createInput:focus {
+    outline-style: none;
+  }
+  
+  .createText {
+    width: 70vw;
+    height: 100vh;
+    font-family: inherit;
+    font-size: 20px;
+  }
+  
+  .createSubmit {
+    position: absolute;
+    top: 20px;
+    right: 50px;
+    color: white;
+    background-color: teal;
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+  }
+  

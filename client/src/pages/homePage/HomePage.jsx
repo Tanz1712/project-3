@@ -2,6 +2,7 @@ import Header from "../../components/header/Header";
 import "./homePage.css";
 import Posts from "../../components/posts/Posts";
 import Sidebar from "../../components/sidebar/Sidebar";
+import { useLocation } from "react-router";
 
 import React from "react";
 import { useState, useEffect } from "react";

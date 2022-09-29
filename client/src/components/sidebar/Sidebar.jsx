@@ -65,7 +65,7 @@ export default function Sidebar() {
           <i className="topIcon fa-brands fa-twitter"></i>
         </div> */}
         <adress>
-          <a href="mailto:tanvi.monitors@gmail.com">Tanvi Gurjar </a>
+          <a href="mailto:tanvi.monitors@gmail.com" className="link" style={{color:"orange"}}>Tanvi Gurjar </a>
         </adress>
       </div>
     </div>

@@ -48,13 +48,19 @@ export default function Navbar() {
               WRITE
             </Link>
           </li>
+
+          <li className="topListItem">
+            <Link to="/categories" className="link">
+             CATEGORY
+            </Link>
+          </li>
+
           <li className="topListItem" onClick={logOutUser}>
             {" "}
             {isLoggedIn && "LOGOUT"}{" "}
-           
           </li>
-          <span>{user && user.name}</span> 
-        {/* {isLoggedIn && (
+          <span>Hello {user && user.name}</span>
+          {/* {isLoggedIn && (
           <button onClick={logOutUser}>Logout</button>)}*/}
         </ul>
       </div>

@@ -23,8 +23,10 @@ export default function Post({ post }) {
           );
         })}   */}
 
-          {/*  <span className="postCat">Categories : {post.categories}</span> */}
+          <span className="postCat">CategoriesId : {post?.categories?.name}</span>
         </div>
+
+        <span className="postAuthor">AuthorId: {post?.author?.name}</span>
         <Link to={`/post/${post._id}`} className="link">
           <span className="postTitle">{post.title}</span>
         </Link>
