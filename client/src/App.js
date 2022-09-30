@@ -45,9 +45,9 @@ function App() {
         <Route
           path="/post/:postId"
           element={
-            /* <IsPrivate>*/
+             <IsPrivate>
             <Single />
-            /* </IsPrivate> */
+             </IsPrivate> 
           }
         />
         <Route

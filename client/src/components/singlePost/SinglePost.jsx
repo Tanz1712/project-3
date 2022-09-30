@@ -16,7 +16,7 @@ const API_URL = "http://localhost:5005";
 export default function SinglePost() {
   // Subscribe to the AuthContext to gain access to
   // the values from AuthContext.Provider `value` prop
-  // const { isLoggedIn, user, logOutUser } = useContext(AuthContext);
+   const { isLoggedIn, user, logOutUser } = useContext(AuthContext);
 
   const [post, setPost] = useState([]);
   const [title, setTitle] = useState("");
@@ -32,8 +32,13 @@ export default function SinglePost() {
       // Subscribe to the AuthContext to gain access to
       // the values from AuthContext.Provider `value` prop
       //const { isLoggedIn, user, logOutUser } = useContext(AuthContext);
+
+        // Get the token from the localStorage
+  const storedToken = localStorage.getItem("authToken");
+ 
+  // Send the token through the request "Authorization" Headers
       axios
-        .get(`${API_URL}/api/posts/${postId}`) //, { headers: { Authorization: `Bearer ${storedToken}` } }
+        .get(`${API_URL}/api/posts/${postId}`, { headers: { Authorization: `Bearer ${storedToken}` } }) 
         .then((response) => {
           const onePost = response.data;
           setPost(onePost); //console.log(response.data)
@@ -51,22 +56,33 @@ export default function SinglePost() {
     // Create an object representing the body of the PUT request
     const requestBody = { title, content };
 
+      // Get the token from the localStorage
+  const storedToken = localStorage.getItem('authToken');
+
+  // Send the token through the request "Authorization" Headers
+
     // Make a PUT request to update the project
     axios
-      .put(`${API_URL}/api/posts/${postId}`, requestBody)
-      .then((response) => {
+      .put(`${API_URL}/api/posts/${postId}`, requestBody,  { headers: { Authorization: `Bearer ${storedToken}` } })
+      .then((response) => { // , (post.author == req.payload._id)
         setUpdateMode(false);
         // Once the request is resolved successfully and the post
         // is updated we navigate back to the details page
-        navigate(`/posts/${postId}`);
+       // navigate(`/posts/${postId}`);
+       navigate("/");
       })
       .catch((error) => console.log(error));
   };
 
   const handleDelete = () => {
+     // Get the token from the localStorage
+  const storedToken = localStorage.getItem("authToken");
+ 
+  // Send the token through the request "Authorization" Headers
+
     // Make a DELETE request to delete the post
-    axios
-      .delete(`${API_URL}/api/posts/${postId}`) // , (post.author == req.payload._id)
+    axios //  (post.author == req.payload._id)
+      .delete(`${API_URL}/api/posts/${postId}`,  { headers: { Authorization: `Bearer ${storedToken}` } }) 
       .then(() => {
         // Once the delete request is resolved successfully
         // navigate back to the list of posts.
@@ -103,9 +119,9 @@ export default function SinglePost() {
                   className="singlePostIcon fa-solid fa-pen"
                   onClick={() => setUpdateMode(true)}
                 ></i>
-                <i className="singlePostIcon fa-solid fa-trash">
+                <i className="singlePostIcon fa-solid fa-trash"
                   onClick={handleDelete}
-                </i>
+                ></i>
               </>
             </div>
           </h1>

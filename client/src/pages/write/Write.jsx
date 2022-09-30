@@ -21,12 +21,14 @@ export default function Write() {
   const [author, setAuthor] = useState(user._id);
   const [categories, setCategories] = useState([]);
 
+  const [errorMessage, setErrorMessage] = useState(undefined);
+
   const navigate = useNavigate();
 
   const handleFileInput = (e) => setFile(e.target.value);
   const handleTitleInput = (e) => setTitle(e.target.value);
   const handleContentInput = (e) => setContent(e.target.value);
-  // const handleCategoryInput = (e) => setCategories(e.target.value);
+ // const handleCategoryInput = (e) => setCategories(e.target.value);
 
   const handleSubmit = (e) => {
     // Prevent page reload on submit
@@ -53,13 +55,16 @@ export default function Write() {
         // Reset the state
         setTitle("");
         setContent("");
-        setFile("");
-        //  setCategories("");
+       // setFile("");
+       //  setCategories("");
 
         // Navigate to the `/` page
         navigate("/");
       })
-      .catch((error) => console.log(error));
+      .catch((error) => {
+        const errorDescription = error.response.data.message;
+        setErrorMessage(errorDescription);
+      });
   };
 
   return (
@@ -81,30 +86,31 @@ export default function Write() {
             name="file"
             value={file}
             onChange={handleFileInput}
-          />
+          /> 
 
           <input
             type="text"
             placeholder="Title"
             className="createInput"
+            autoFocus={true}
             name="title"
             value={title}
             onChange={handleTitleInput}
           />
 
-          {/*  
-               <div className="createFormGroup">
-        <input
+            
+            {/*    <div className="createFormGroup">
+       <input
             type="text"
             placeholder="Categories"
             className="createInput"
-            autoFocus={true}
+           
             name="categories"
             value={categories}
             onChange={handleCategoryInput}
           />
-           </div>
-          */}
+           </div> */}
+          
         </div>
 
         <div className="createFormGroup">

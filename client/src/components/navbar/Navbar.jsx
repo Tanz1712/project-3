@@ -59,9 +59,8 @@ export default function Navbar() {
             {" "}
             {isLoggedIn && "LOGOUT"}{" "}
           </li>
-          <span>Hello {user && user.name}</span>
-          {/* {isLoggedIn && (
-          <button onClick={logOutUser}>Logout</button>)}*/}
+          <span> {user && user.name}</span>
+         
         </ul>
       </div>
       <div className="topRight">
