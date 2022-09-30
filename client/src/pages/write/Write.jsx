@@ -1,7 +1,8 @@
 import "./write.css";
-import axios from "axios";
 
 import { useState } from "react";
+
+import axios from "axios";
 
 import { useContext } from "react";
 
@@ -25,27 +26,27 @@ export default function Write() {
   const handleFileInput = (e) => setFile(e.target.value);
   const handleTitleInput = (e) => setTitle(e.target.value);
   const handleContentInput = (e) => setContent(e.target.value);
- // const handleCategoryInput = (e) => setCategories(e.target.value);
+  // const handleCategoryInput = (e) => setCategories(e.target.value);
 
   const handleSubmit = (e) => {
     // Prevent page reload on submit
     e.preventDefault();
-    // Create the body for the POST request
-    const body = {
+    // Create the requestBody for the POST request
+    const requestBody = {
       title: title,
       content: content,
       file: file,
       author,
       categories,
     };
-    /* const body = { title: title, content: content, author: user.name }; */
+    /* const requestBody = { title: title, content: content, author: user.name }; */
 
     // Get the token from the localStorage
     const storedToken = localStorage.getItem("authToken");
 
     // Send the token through the request "Authorization" Headers
     axios
-      .post(`${API_URL}/api/posts/`, body, {
+      .post(`${API_URL}/api/posts/`, requestBody, {
         headers: { Authorization: `Bearer ${storedToken}` },
       })
       .then((response) => {
@@ -53,11 +54,12 @@ export default function Write() {
         setTitle("");
         setContent("");
         setFile("");
-      //  setCategories("");
+        //  setCategories("");
 
         // Navigate to the `/` page
         navigate("/");
-      });
+      })
+      .catch((error) => console.log(error));
   };
 
   return (
@@ -81,15 +83,6 @@ export default function Write() {
             onChange={handleFileInput}
           />
 
-        {/* <input
-            type="text"
-            placeholder="Category"
-            className="createInput"
-            autoFocus={true}
-            name="categories"
-            value={categories}
-            onChange={handleCategoryInput}
-          />*/}
           <input
             type="text"
             placeholder="Title"
@@ -98,7 +91,22 @@ export default function Write() {
             value={title}
             onChange={handleTitleInput}
           />
+
+          {/*  
+               <div className="createFormGroup">
+        <input
+            type="text"
+            placeholder="Categories"
+            className="createInput"
+            autoFocus={true}
+            name="categories"
+            value={categories}
+            onChange={handleCategoryInput}
+          />
+           </div>
+          */}
         </div>
+
         <div className="createFormGroup">
           <textarea
             placeholder="tell your story..."

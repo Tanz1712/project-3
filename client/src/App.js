@@ -10,7 +10,7 @@ import Single from "./pages/single/Single";
 import Write from "./pages/write/Write";
 import IsPrivate from "./components/IsPrivate";
 import IsAnon from "./components/IsAnon";
-import Category from "./pages/category/Category"
+import Category from "./pages/category/Category";
 
 import ErrorPage from "./pages/errorPage/ErrorPage";
 
@@ -45,9 +45,9 @@ function App() {
         <Route
           path="/post/:postId"
           element={
-            <IsPrivate>
-              <Single />
-            </IsPrivate>
+            /* <IsPrivate>*/
+            <Single />
+            /* </IsPrivate> */
           }
         />
         <Route
@@ -59,7 +59,7 @@ function App() {
             </IsPrivate>
           }
         />
-             <Route
+        <Route
           path="/categories"
           element={
             <IsPrivate>
