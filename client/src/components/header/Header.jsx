@@ -3,13 +3,13 @@ import "./header.css";
 export default function Header() {
   return (
     <div className="header">
-      <div className="headerTitles">
+    {/*  <div className="headerTitles">
         <span className="headerTitleSm">Welcome</span>
         <span className="headerTitleLg">Information</span>
-      </div>
+      </div> */}
       <img
         className="headerImg"
-        src="https://www.pngfind.com/pngs/m/240-2405208_transparent-nature-background-png-png-download.png"
+        src="https://justplayinghouse.com/wp-content/uploads/2017/02/share3.jpg"
         alt=""
       />
     </div>

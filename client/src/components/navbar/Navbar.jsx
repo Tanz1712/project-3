@@ -20,7 +20,7 @@ export default function Navbar() {
             <i className="logo fa-solid fa-heart-pulse"></i>
             <img src="" alt="" />
           </li>
-          <li>Tell Your Story</li>
+          <li>Share Your Story</li>
         </ul>
       </div>
       <div className="topCenter">

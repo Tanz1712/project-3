@@ -24,14 +24,12 @@ export default function Sidebar() {
     <div className="sidebar">
       <div className="sidebarItem">
         <span className="sidebarTitle">About Me</span>
-        <img
-          src="https://www.pngfind.com/pngs/m/240-2405208_transparent-nature-background-png-png-download.png"
+        <img 
+          src="https://res.cloudinary.com/der1ghtaj/image/upload/v1664576168/Tang_iwtkze.jpg"
           alt=""
         />
         <p>
-          dtbdtttttttttttttttttttttttttttttttndrtnfgfccgcgh
-          dtbdtttttttttttttttttttttttttttttttndrtnfgfccgcgh
-          dtbdtttttttttttttttttttttttttttttttndrtnfgfccgcgh
+         Stay HAPPY, stay Healthy  &#x1F607;
         </p>
       </div>
       <div className="sidebarItem">
