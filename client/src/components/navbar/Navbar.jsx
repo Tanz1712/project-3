@@ -51,7 +51,7 @@ export default function Navbar() {
 
           <li className="topListItem">
             <Link to="/categories" className="link">
-             CATEGORY
+              CATEGORY
             </Link>
           </li>
 
@@ -60,7 +60,6 @@ export default function Navbar() {
             {isLoggedIn && "LOGOUT"}{" "}
           </li>
           <span> {user && user.name}</span>
-         
         </ul>
       </div>
       <div className="topRight">
@@ -68,7 +67,7 @@ export default function Navbar() {
           <Link to="/settings">
             <img
               className="topImg"
-              src="https://www.pngfind.com/pngs/m/240-2405208_transparent-nature-background-png-png-download.png"
+              src="https://thumbs.dreamstime.com/z/standard-avatar-profilsymbol-des-social-media-benutzers-im-cliparts-stil-clipart-style-symbol-252803905.jpg"
               alt="Profile pic"
             />
           </Link>
@@ -86,7 +85,7 @@ export default function Navbar() {
             </li>
           </ul>
         )}
-        <i class="topSearchIcon fa-solid fa-magnifying-glass"></i>
+        {/* <i class="topSearchIcon fa-solid fa-magnifying-glass"></i> */}
       </div>
     </div>
   );

@@ -24,13 +24,11 @@ export default function Sidebar() {
     <div className="sidebar">
       <div className="sidebarItem">
         <span className="sidebarTitle">About Me</span>
-        <img 
+        <img
           src="https://res.cloudinary.com/der1ghtaj/image/upload/v1664576168/Tang_iwtkze.jpg"
           alt=""
         />
-        <p>
-         Stay HAPPY, stay Healthy  &#x1F607;
-        </p>
+        <p>Stay HAPPY, stay Healthy &#x1F607;</p>
       </div>
       <div className="sidebarItem">
         <span className="sidebarTitle">CATEGORIES</span>
@@ -63,7 +61,13 @@ export default function Sidebar() {
           <i className="topIcon fa-brands fa-twitter"></i>
         </div> */}
         <adress>
-          <a href="mailto:tanvi.monitors@gmail.com" className="link" style={{color:"orange"}}>Tanvi Gurjar </a>
+          <a
+            href="mailto:tanvi.monitors@gmail.com"
+            className="link"
+            style={{ color: "orange" }}
+          >
+            Tanvi Gurjar{" "}
+          </a>
         </adress>
       </div>
     </div>

@@ -1,6 +1,6 @@
 import "./write.css";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import axios from "axios";
 
@@ -19,7 +19,7 @@ export default function Write() {
   const [content, setContent] = useState("");
   const [file, setFile] = useState(null);
   const [author, setAuthor] = useState(user._id);
-  const [categories, setCategories] = useState([]);
+  const [cats, setCats] = useState([]);
 
   const [errorMessage, setErrorMessage] = useState(undefined);
 
@@ -28,7 +28,7 @@ export default function Write() {
   const handleFileInput = (e) => setFile(e.target.value);
   const handleTitleInput = (e) => setTitle(e.target.value);
   const handleContentInput = (e) => setContent(e.target.value);
- // const handleCategoryInput = (e) => setCategories(e.target.value);
+  // const handleCategoryInput = (e) => setCategories(e.target.value);
 
   const handleSubmit = (e) => {
     // Prevent page reload on submit
@@ -39,7 +39,7 @@ export default function Write() {
       content: content,
       file: file,
       author,
-      categories,
+      // categories,
     };
     /* const requestBody = { title: title, content: content, author: user.name }; */
 
@@ -55,8 +55,8 @@ export default function Write() {
         // Reset the state
         setTitle("");
         setContent("");
-       // setFile("");
-       //  setCategories("");
+        // setFile("");
+        //  setCategories("");
 
         // Navigate to the `/` page
         navigate("/");
@@ -67,11 +67,24 @@ export default function Write() {
       });
   };
 
+  const getAllCats = () => {
+    axios
+      .get(`${API_URL}/api/categories`)
+      .then((response) => {
+        console.log(response);
+        setCats(response.data);
+      }) //console.log(response.data)
+      .catch((error) => console.log(error));
+  };
+
+  useEffect(() => {
+    getAllCats();
+  }, []);
   return (
     <div className="write">
       <img
         className="createImg"
-        src="https://www.pngfind.com/pngs/m/240-2405208_transparent-nature-background-png-png-download.png"
+        src="https://quotefancy.com/media/wallpaper/3840x2160/4704928-Demi-Lovato-Quote-Every-life-has-a-purpose-Share-your-story-and.jpg"
         alt=""
       />
       <form className="createForm" onSubmit={handleSubmit}>
@@ -86,7 +99,7 @@ export default function Write() {
             name="file"
             value={file}
             onChange={handleFileInput}
-          /> 
+          />
 
           <input
             type="text"
@@ -97,20 +110,14 @@ export default function Write() {
             value={title}
             onChange={handleTitleInput}
           />
+        </div>
 
-            
-            {/*    <div className="createFormGroup">
-       <input
-            type="text"
-            placeholder="Categories"
-            className="createInput"
-           
-            name="categories"
-            value={categories}
-            onChange={handleCategoryInput}
-          />
-           </div> */}
-          
+        <div className="createFormGroup">
+          <select select>
+            {cats.map((c) => {
+              return <option value={c._id}>{c.name}</option>;
+            })}
+          </select>
         </div>
 
         <div className="createFormGroup">

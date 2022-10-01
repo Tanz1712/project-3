@@ -3,7 +3,7 @@ import "./header.css";
 export default function Header() {
   return (
     <div className="header">
-    {/*  <div className="headerTitles">
+      {/*  <div className="headerTitles">
         <span className="headerTitleSm">Welcome</span>
         <span className="headerTitleLg">Information</span>
       </div> */}

@@ -16,7 +16,7 @@ const API_URL = "http://localhost:5005";
 export default function SinglePost() {
   // Subscribe to the AuthContext to gain access to
   // the values from AuthContext.Provider `value` prop
-   const { isLoggedIn, user, logOutUser } = useContext(AuthContext);
+  const { isLoggedIn, user, logOutUser } = useContext(AuthContext);
 
   const [post, setPost] = useState([]);
   const [title, setTitle] = useState("");
@@ -33,14 +33,17 @@ export default function SinglePost() {
       // the values from AuthContext.Provider `value` prop
       //const { isLoggedIn, user, logOutUser } = useContext(AuthContext);
 
-        // Get the token from the localStorage
-  const storedToken = localStorage.getItem("authToken");
- 
-  // Send the token through the request "Authorization" Headers
+      // Get the token from the localStorage
+      const storedToken = localStorage.getItem("authToken");
+
+      // Send the token through the request "Authorization" Headers
       axios
-        .get(`${API_URL}/api/posts/${postId}`, { headers: { Authorization: `Bearer ${storedToken}` } }) 
+        .get(`${API_URL}/api/posts/${postId}`, {
+          headers: { Authorization: `Bearer ${storedToken}` },
+        })
         .then((response) => {
           const onePost = response.data;
+          console.log(onePost);
           setPost(onePost); //console.log(response.data)
           setTitle(onePost.title);
           setContent(onePost.content);
@@ -56,33 +59,38 @@ export default function SinglePost() {
     // Create an object representing the body of the PUT request
     const requestBody = { title, content };
 
-      // Get the token from the localStorage
-  const storedToken = localStorage.getItem('authToken');
+    // Get the token from the localStorage
+    const storedToken = localStorage.getItem("authToken");
 
-  // Send the token through the request "Authorization" Headers
+    // Send the token through the request "Authorization" Headers
 
     // Make a PUT request to update the project
     axios
-      .put(`${API_URL}/api/posts/${postId}`, requestBody,  { headers: { Authorization: `Bearer ${storedToken}` } })
-      .then((response) => { // , (post.author == req.payload._id)
+      .put(`${API_URL}/api/posts/${postId}`, requestBody, {
+        headers: { Authorization: `Bearer ${storedToken}` },
+      })
+      .then((response) => {
+        // , (post.author == req.payload._id)
         setUpdateMode(false);
         // Once the request is resolved successfully and the post
         // is updated we navigate back to the details page
-       // navigate(`/posts/${postId}`);
-       navigate("/");
+        // navigate(`/posts/${postId}`);
+        navigate("/");
       })
       .catch((error) => console.log(error));
   };
 
   const handleDelete = () => {
-     // Get the token from the localStorage
-  const storedToken = localStorage.getItem("authToken");
- 
-  // Send the token through the request "Authorization" Headers
+    // Get the token from the localStorage
+    const storedToken = localStorage.getItem("authToken");
+
+    // Send the token through the request "Authorization" Headers
 
     // Make a DELETE request to delete the post
     axios //  (post.author == req.payload._id)
-      .delete(`${API_URL}/api/posts/${postId}`,  { headers: { Authorization: `Bearer ${storedToken}` } }) 
+      .delete(`${API_URL}/api/posts/${postId}`, {
+        headers: { Authorization: `Bearer ${storedToken}` },
+      })
       .then(() => {
         // Once the delete request is resolved successfully
         // navigate back to the list of posts.
@@ -91,6 +99,9 @@ export default function SinglePost() {
       .catch((err) => console.log(err));
   };
 
+  if (post.length === 0) {
+    return <div>Loading ...</div>;
+  }
   //  Update the rendering logic to display different content
   //  depending on the user being logged in or not
   return (
@@ -113,16 +124,18 @@ export default function SinglePost() {
             {title}
 
             <div className="singlePostEdit">
-              {/*  {((isLoggedIn) && (post.author == req.payload._id)) && ( )} */}
-              <>
-                <i
-                  className="singlePostIcon fa-solid fa-pen"
-                  onClick={() => setUpdateMode(true)}
-                ></i>
-                <i className="singlePostIcon fa-solid fa-trash"
-                  onClick={handleDelete}
-                ></i>
-              </>
+              {post.author._id === user._id && (
+                <>
+                  <i
+                    className="singlePostIcon fa-solid fa-pen"
+                    onClick={() => setUpdateMode(true)}
+                  ></i>
+                  <i
+                    className="singlePostIcon fa-solid fa-trash"
+                    onClick={handleDelete}
+                  ></i>
+                </>
+              )}
             </div>
           </h1>
         )}
