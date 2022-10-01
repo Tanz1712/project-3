@@ -3,7 +3,7 @@
   height: fit-content;
   margin: 20px;
   padding-bottom: 30px;
-  background-color: #fdfbfb;
+  background-color: rgb(240, 239, 239);
   border-radius: 10px;
   display: flex;
   flex-direction: column;
@@ -70,4 +70,9 @@
   margin-right: 10px;
   color: #444;
   cursor: pointer;
+}
+
+img {
+  width: 1000px;
+  height: 800;
 }

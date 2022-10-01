@@ -10,6 +10,8 @@ import Single from "./pages/single/Single";
 import Write from "./pages/write/Write";
 import IsPrivate from "./components/IsPrivate";
 import IsAnon from "./components/IsAnon";
+import Category from "./pages/category/Category";
+import About from "./pages/about/About";
 
 import ErrorPage from "./pages/errorPage/ErrorPage";
 
@@ -59,6 +61,15 @@ function App() {
           }
         />
         <Route
+          path="/categories"
+          element={
+            <IsPrivate>
+              {" "}
+              <Category />{" "}
+            </IsPrivate>
+          }
+        />
+        <Route
           path="/settings"
           element={
             <IsPrivate>
@@ -68,7 +79,7 @@ function App() {
           }
         />
         <Route path="/contact" element={<Sidebar />} />
-        <Route path="/about" element={<Sidebar />} />
+        <Route path="/about" element={<About />} />
 
         <Route path="*" element={<ErrorPage />} />
       </Routes>

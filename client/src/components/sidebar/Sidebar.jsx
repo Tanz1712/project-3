@@ -25,14 +25,10 @@ export default function Sidebar() {
       <div className="sidebarItem">
         <span className="sidebarTitle">About Me</span>
         <img
-          src="https://www.pngfind.com/pngs/m/240-2405208_transparent-nature-background-png-png-download.png"
+          src="https://res.cloudinary.com/der1ghtaj/image/upload/v1664576168/Tang_iwtkze.jpg"
           alt=""
         />
-        <p>
-          dtbdtttttttttttttttttttttttttttttttndrtnfgfccgcgh
-          dtbdtttttttttttttttttttttttttttttttndrtnfgfccgcgh
-          dtbdtttttttttttttttttttttttttttttttndrtnfgfccgcgh
-        </p>
+        <p>Stay HAPPY, stay Healthy &#x1F607;</p>
       </div>
       <div className="sidebarItem">
         <span className="sidebarTitle">CATEGORIES</span>
@@ -65,7 +61,13 @@ export default function Sidebar() {
           <i className="topIcon fa-brands fa-twitter"></i>
         </div> */}
         <adress>
-          <a href="mailto:tanvi.monitors@gmail.com">Tanvi Gurjar </a>
+          <a
+            href="mailto:tanvi.monitors@gmail.com"
+            className="link"
+            style={{ color: "orange" }}
+          >
+            Tanvi Gurjar{" "}
+          </a>
         </adress>
       </div>
     </div>
