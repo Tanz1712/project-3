@@ -49,11 +49,11 @@ export default function Navbar() {
             </Link>
           </li>
 
-          <li className="topListItem">
+         {/* <li className="topListItem">
             <Link to="/categories" className="link">
               CATEGORY
             </Link>
-          </li>
+          </li> */}
 
           <li className="topListItem" onClick={logOutUser}>
             {" "}

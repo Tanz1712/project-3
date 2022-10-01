@@ -25,7 +25,7 @@ export default function Post({ post }) {
         })}   */}
 
             <span className="postCat">
-              Categories : {post?.categories?.name}
+            {/* Categories : {post?.categories?.name} */}
             </span>
           </div>
 
