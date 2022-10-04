@@ -31,9 +31,9 @@ export default function Write() {
   const handleContentInput = (e) => setContent(e.target.value);
   // const handleCategoryInput = (e) => setCategories(e.target.value);
 
-  const handleSelect = e => {
+  const handleSelect = (e) => {
     setChoice(e.target.value);
- 
+
     console.log("selected", e.target.value);
   };
 
@@ -47,7 +47,7 @@ export default function Write() {
       file: file,
       author,
       // categories,
-      cats
+      cats,
     };
     /* const requestBody = { title: title, content: content, author: user.name }; */
 
@@ -124,7 +124,11 @@ export default function Write() {
         <div className="createFormGroup">
           <select value={choice} onChange={handleSelect}>
             {cats.map((c) => {
-              return <option key={c._id} value={c._id}>{c.name}</option>;
+              return (
+                <option key={c._id} value={c._id}>
+                  {c.name}
+                </option>
+              );
             })}
           </select>
         </div>
