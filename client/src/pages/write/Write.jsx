@@ -20,6 +20,7 @@ export default function Write() {
   const [file, setFile] = useState(null);
   const [author, setAuthor] = useState(user._id);
   const [cats, setCats] = useState([]);
+  const [choice, setChoice] = useState("");
 
   const [errorMessage, setErrorMessage] = useState(undefined);
 
@@ -29,6 +30,12 @@ export default function Write() {
   const handleTitleInput = (e) => setTitle(e.target.value);
   const handleContentInput = (e) => setContent(e.target.value);
   // const handleCategoryInput = (e) => setCategories(e.target.value);
+
+  const handleSelect = e => {
+    setChoice(e.target.value);
+ 
+    console.log("selected", e.target.value);
+  };
 
   const handleSubmit = (e) => {
     // Prevent page reload on submit
@@ -40,6 +47,7 @@ export default function Write() {
       file: file,
       author,
       // categories,
+      cats
     };
     /* const requestBody = { title: title, content: content, author: user.name }; */
 
@@ -57,6 +65,7 @@ export default function Write() {
         setContent("");
         // setFile("");
         //  setCategories("");
+        setCats("");
 
         // Navigate to the `/` page
         navigate("/");
@@ -113,9 +122,9 @@ export default function Write() {
         </div>
 
         <div className="createFormGroup">
-          <select select>
+          <select value={choice} onChange={handleSelect}>
             {cats.map((c) => {
-              return <option value={c._id}>{c.name}</option>;
+              return <option key={c._id} value={c._id}>{c.name}</option>;
             })}
           </select>
         </div>
